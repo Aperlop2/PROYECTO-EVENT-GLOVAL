@@ -1,0 +1,186 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+.sidenav-container {
+    width: 100%;
+    height: 100%;
+}
+
+.mat-sidenav {
+    background-color: #2e7d32;
+    color: white;
+}
+
+.profile-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 3px solid #6d4c41;
+}
+
+.profile-name {
+    margin: 10px 0;
+    color: #aed581;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mat-button {
+    background-color: #6d4c41;
+    color: white;
+    border: none;
+}
+
+.mat-button:hover {
+    background-color: #5d4037;
+}
+
+.ratio {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.ratio iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+button {
+    margin-top: 20px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    background-color: #10e71e;
+    color: white;
+    border-radius: 10px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.full-height {
+    height: 100%; // Ajusta según la altura del navbar o cualquier otro elemento superior
+}
+
+.map-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+mat-form-field {
+    background: #4caf50;
+    border-radius: 4px;
+    color: white;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+    padding: 0 12px;
+    background: transparent;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-outline {
+    border: none;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-outline-start,
+.mat-form-field-appearance-fill .mat-form-field-outline-end,
+.mat-form-field-appearance-fill .mat-form-field-outline-gap {
+    border: none;
+}
+
+.mat-form-field-appearance-fill .mat-input-element,
+.mat-form-field-appearance-fill .mat-form-field-label {
+    color: #ffffff !important;
+}
+
+.mat-input-element {
+    background: #81c784;
+    padding: 10px;
+    border-radius: 4px;
+    color: white;
+}
+
+button[mat-raised-button] {
+    background-color: #0277bd;
+    color: white;
+    align-self: flex-start;
+}
+
+button[mat-raised-button]:hover {
+    background-color: #01579b;
+}
+
+.form-title {
+    text-align: center;
+    font-size: 24px;
+    color: #ffeb3b;
+    margin-bottom: 20px;
+}
+
+
+/* Estilos para la sección de bienvenida */
+
+.welcome-section {
+    background-image: url('./../../../../assets/bienvenida.jfif'); // Ajusta la ruta según sea necesario
+    background-size: cover;
+    background-position: center;
+    height: 100vh; // Asegúrate de que ocupe toda la altura
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.welcome-section h1 {
+    font-size: 60px; // Tamaño de fuente más grande para el título
+    font-family: 'Arial', sans-serif; // Cambia el tipo de letra según tus preferencias
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); // Añade sombra al texto para mejor legibilidad
+    background: rgba(255, 255, 255, 0.5); // Fondo blanco semitransparente
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.welcome-section p {
+    font-size: 40px; // Tamaño de fuente más grande para el párrafo
+    font-family: 'Arial', sans-serif; // Cambia el tipo de letra según tus preferencias
+    text-shadow: 1px 1px 3px rgba(2, 51, 4, 0.7); // Añade sombra al texto para mejor legibilidad
+    background: rgba(255, 255, 255, 0.582); // Fondo blanco semitransparente
+    padding: 10px;
+    border-radius: 5px;
+}

@@ -1,0 +1,41 @@
+<!-- src/app/views/pages/perfil/eventos-destacados/eventos-destacados.component.html -->
+<div>
+    <h1>Eventos Naturales en México</h1>
+    <google-map height="400px" width="100%" [center]="center" [zoom]="zoom">
+        <map-marker *ngFor="let marker of markers" [position]="marker.position" [label]="marker.label" (mapClick)="openInfo(marker, marker.event)">
+        </map-marker>
+    </google-map>
+
+    <div class="info-panel" *ngIf="selectedEvent">
+        <h2>Detalles del Evento</h2>
+        <h3>Nombre del Evento: Movimiento terrestre {{ selectedEvent.properties.mag }} - {{ selectedEvent.properties.place }}</h3>
+        <h3>Magnitud: {{ selectedEvent.properties.mag }}</h3>
+        <p>Lugar: {{ selectedEvent.properties.place }}</p>
+        <p>Fecha y hora: {{ selectedEvent.properties.time | date:'medium' }}</p>
+        <p>Más información: <a [href]="selectedEvent.properties.url" target="_blank">USGS Event Page</a></p>
+        <button (click)="getRecommendations()" style="background-color: rgb(13, 164, 252); color: rgb(3, 3, 3);">Obtener Recomendaciones</button>
+
+    </div>
+
+    <div *ngIf="recommendations" class="recommendations-container">
+        <h3 style="background-color: rgb(13, 164, 252); color: rgb(3, 3, 3);">Recomendaciones</h3>
+        <p>{{ recommendations }}</p>
+    </div>
+
+    <div *ngIf="weatherData">
+        <h1>Pronóstico del Tiempo para {{ weatherData.location.name }}, {{ weatherData.location.country }}</h1>
+        <div *ngFor="let day of weatherData.forecast.forecastday" class="weather-card">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>{{ day.date }}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <p>Temperatura: {{ day.day.avgtemp_c }}°C</p>
+                    <p>Condición: {{ day.day.condition.text }}</p>
+                    <img [src]="day.day.condition.icon" alt="Weather icon">
+                    <p>Probabilidad de lluvia: {{ day.day.daily_chance_of_rain }}%</p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

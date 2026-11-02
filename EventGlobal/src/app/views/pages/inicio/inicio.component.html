@@ -1,0 +1,12 @@
+<div class="background" [ngStyle]="{'background-image': 'url(' + backgroundImage + ')'}">
+    <div class="header">
+        <button mat-raised-button color="primary" routerLink="/register">Registrarse</button>
+        <button mat-raised-button color="primary" routerLink="/login">Iniciar Sesión</button>
+    </div>
+    <div class="overlay">
+        <div class="info">
+            <h1>Bienvenido a EventGlobal</h1>
+        </div>
+    </div>
+    <button mat-raised-button color="primary" routerLink="/ubicacion">Ver Mapa en Tiempo Real</button>
+</div>

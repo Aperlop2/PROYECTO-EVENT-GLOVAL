@@ -1,0 +1,85 @@
+<div class="user-list-container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Lista de Usuarios</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <table mat-table [dataSource]="users" class="mat-elevation-z8">
+                <ng-container matColumnDef="email">
+                    <th mat-header-cell *matHeaderCellDef> Email </th>
+                    <td mat-cell *matCellDef="let user"> {{ user.email }} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="fullName">
+                    <th mat-header-cell *matHeaderCellDef> Nombre Completo </th>
+                    <td mat-cell *matCellDef="let user"> {{ user.fullName }} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef> Acciones </th>
+                    <td mat-cell *matCellDef="let user">
+                        <button mat-button color="primary" (click)="editUser(user)">Editar</button>
+                        <button mat-button color="warn" (click)="deleteUser(user._id)">Eliminar</button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card *ngIf="userForm" class="edit-user-card">
+        <mat-card-header>
+            <mat-card-title>Editar Usuario</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form [formGroup]="userForm" (ngSubmit)="updateUser()">
+                <input formControlName="_id" type="hidden">
+                <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Nombre Completo</mat-label>
+                    <input matInput formControlName="fullName">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Municipio</mat-label>
+                    <input matInput formControlName="municipality">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Calle</mat-label>
+                    <input matInput formControlName="street">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Colonia</mat-label>
+                    <input matInput formControlName="neighborhood">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Número Interior</mat-label>
+                    <input matInput formControlName="interiorNumber">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Número Exterior</mat-label>
+                    <input matInput formControlName="exteriorNumber">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Código Postal</mat-label>
+                    <input matInput formControlName="postalCode">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Latitud</mat-label>
+                    <input matInput formControlName="location.lat">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Longitud</mat-label>
+                    <input matInput formControlName="location.lng">
+                </mat-form-field>
+                <div class="form-actions">
+                    <button mat-raised-button color="primary" type="submit">Actualizar</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
